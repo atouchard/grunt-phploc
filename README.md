@@ -1,4 +1,4 @@
-# grunt-phploc
+# grunt-phploc [![Build Status](https://travis-ci.org/atouchard/grunt-phploc.svg?branch=master)](https://travis-ci.org/atouchard/grunt-phploc)
 
 > Grunt plugin for running phploc.
 
