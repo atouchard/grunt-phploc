@@ -1,0 +1,40 @@
+{
+  "name": "grunt-phploc",
+  "description": "Grunt plugin for running phploc.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/atouchard/grunt-phploc",
+  "author": {
+    "name": "Alexandre Touchard",
+    "email": "atouchard@github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/atouchard/grunt-phploc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atouchard/grunt-phploc/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/atouchard/grunt-phploc/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin",
+    "phploc"
+  ]
+}
