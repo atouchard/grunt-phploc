@@ -2,7 +2,7 @@
 
 > Grunt plugin for running phploc.
 
-##Getting Started
+## Getting Started
 
 This plugin requires Grunt `0.4.0`.
 
@@ -37,11 +37,9 @@ In your project's Gruntfile, add a section named `phploc` to the data object pas
 ```js
 grunt.initConfig({
   phploc: {
+    dir: 'src',
     options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
+      // Options go here.
     },
   },
 });
