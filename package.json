@@ -1,11 +1,11 @@
 {
   "name": "grunt-phploc",
   "description": "Grunt plugin for running phploc.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/atouchard/grunt-phploc",
   "author": {
     "name": "Alexandre Touchard",
-    "email": "atouchard@github.com"
+    "email": "alexchadaster@gmail.com"
   },
   "repository": {
     "type": "git",
