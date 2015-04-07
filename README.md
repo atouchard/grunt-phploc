@@ -47,15 +47,75 @@ grunt.initConfig({
 
 ### Target Properties
 #### dir
-Type: `String`
+Type: `String` or `Array`
 
-The directory where phploc should be run, i.e. where the test classes and the bootstrap are located in.
+The directory where phploc should be run.
 
 ### Options
 #### options.bin
 Type: `String`  Default: `'phploc'`
 
 The executable binary.
+
+#### options.names
+Type: `String`  Default: `*.php`
+
+A comma-separated list of file names to check.
+
+#### options.namesExclude
+Type: `Array`  Default: `undefined`
+
+A comma-separated list of file names to exclude.
+
+#### options.countTests
+Type: `Boolean`  Default: `false`
+
+Count PHPUnit test case classes and test methods.
+
+#### options.exclude
+Type: `String`  Default: `false`
+
+Exclude a directory from code analysis.
+
+#### options.logCSV
+Type: `String`  Default: `undefined`
+
+Write result in CSV format to file.
+
+#### options.logXML
+Type: `String`  Default: `undefined`
+
+Write result in XML format to file.
+
+#### options.progress
+Type: `Boolean`  Default: `false`
+
+Show progress bar.
+
+#### options.quiet
+Type: `Boolean`  Default: `false`
+
+Do not output any message.
+
+#### options.verbose
+Type: `Boolean`  Default: `false`
+
+Increase the verbosity of messages.
+
+#### options.ansi
+Type: `Boolean`  Default: `false`
+
+Force ANSI output.
+
+#### options.noansi
+Type: `Boolean`  Default: `false`
+
+Disable ANSI output.
+
+#### options.nointeraction
+Type: `Boolean`  Default: `false`
+
+Do not ask any interactive question.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
