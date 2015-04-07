@@ -12,27 +12,31 @@ var exec = require('child_process').exec;
 var path = require('path');
 
 var typeIsArray = Array.isArray || function(value) {
-  return {}.toString.call(value) === '[object Array]';
+  return Object.prototype.toString.call(value) === '[object Array]';
 };
 
 exports.init = function(grunt) {
 
-  var exports = {},
-      config = {},
+  var config = {},
       cmd = null,
       done = null,
       defaults = {
         bin: 'phploc',
         exclude: false,
         names: '*.php',
+        namesExclude: false,
         quiet: true,
         verbose: false,
+        ansi: false,
+        noansi: false,
+        progress: false,
+        nointeraction: false,
+        countTests: false,
         reportFileXML: undefined,
         reportFileCSV: undefined
       };
 
   var buildCommand = function(dir) {
-    var excl;
 
     cmd = path.normalize(config.bin);
 
@@ -45,11 +49,12 @@ exports.init = function(grunt) {
     }
 
     if (typeIsArray(config.exclude)) {
-      var _ref = config.exclude;
+      var _ref = config.exclude,
+          excludeDir;
       for (var i = 0, len = _ref.length; i < len; i++) {
-        excl = _ref[i];
-        cmd += " --exclude " + excl;
+        excludeDir += (i === 0) ? _ref[i] : ", " + _ref[i];
       }
+      cmd += " --exclude " + excludeDir;
     }
     else if (config.exclude) {
       cmd += " --exclude " + config.exclude;
@@ -67,7 +72,36 @@ exports.init = function(grunt) {
       cmd += " --verbose";
     }
 
-    return cmd += " " + dir;
+    if (config.ansi) {
+      cmd += " --ansi";
+    }
+
+    if (config.noansi) {
+      cmd += " --no-ansi";
+    }
+
+    if (config.progress) {
+      cmd += " --progress";
+    }
+
+    if (config.nointeraction) {
+      cmd += " --no-interaction";
+    }
+
+    if (config.countTests) {
+      cmd += " --count-tests";
+    }
+
+    if (typeIsArray(dir)) {
+      var dirList;
+      for (var i = 0, len = dir.length; i < len; i++) {
+        dirList += dir[i] + " ";
+      }
+      return cmd += " " + dirList;
+    }
+    else {
+      return cmd += " " + dir;
+    }
   };
 
   /**
@@ -80,8 +114,8 @@ exports.init = function(grunt) {
 
     config = runner.options(defaults);
     cmd = buildCommand(dir);
-    grunt.log.writeln("Starting phploc (target: " + runner.target.cyan + ") in " + dir.cyan);
-    grunt.verbose.writeln("Execute: " + cmd);
+    grunt.log.writeln('Starting phploc (target: ' + runner.target.cyan + ') in ' + dir.cyan);
+    grunt.verbose.writeln('Execute: ' + cmd);
 
     return done = runner.async();
   };
@@ -97,9 +131,7 @@ exports.init = function(grunt) {
       }
 
       if (err) {
-        if (!config.ignoreExitCode) {
-          grunt.fatal(err);
-        }
+        grunt.fatal(err);
       }
 
       return done();
