@@ -1,5 +1,5 @@
 /*
- * grunt-phpunit
+ * grunt-phploc
  * https://github.com/atouchard/grunt-phploc
  *
  * Copyright (c) 2015 Alexandre Touchard
@@ -51,6 +51,7 @@ exports.init = function(grunt) {
     if (typeIsArray(config.exclude)) {
       var _ref = config.exclude,
           excludeDir;
+
       for (var i = 0, len = _ref.length; i < len; i++) {
         excludeDir += (i === 0) ? _ref[i] : ", " + _ref[i];
       }
@@ -65,8 +66,9 @@ exports.init = function(grunt) {
     }
 
     if (typeIsArray(config.namesExclude)) {
-      var _namesExclude = config.namesExclude
+      var _namesExclude = config.namesExclude,
           _namesExcludeList;
+
       for (var j = 0, len = _namesExclude.length; j < len; j++) {
         _namesExcludeList += (j === 0) ? _namesExclude[j] : ", " + _namesExclude[j];
       }

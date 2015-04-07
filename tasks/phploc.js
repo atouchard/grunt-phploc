@@ -1,5 +1,5 @@
 /*
- * grunt-phpunit
+ * grunt-phploc
  * https://github.com/atouchard/grunt-phploc
  *
  * Copyright (c) 2015 Alexandre Touchard
