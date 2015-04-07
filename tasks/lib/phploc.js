@@ -24,7 +24,7 @@ exports.init = function(grunt) {
         bin: 'phploc',
         exclude: false,
         names: '*.php',
-        namesExclude: false,
+        namesExclude: undefined,
         quiet: true,
         verbose: false,
         ansi: false,
@@ -64,6 +64,18 @@ exports.init = function(grunt) {
       cmd += " --names \"" + config.names + "\"";
     }
 
+    if (typeIsArray(config.namesExclude)) {
+      var _namesExclude = config.namesExclude
+          _namesExcludeList;
+      for (var j = 0, len = _namesExclude.length; j < len; j++) {
+        _namesExcludeList += (j === 0) ? _namesExclude[j] : ", " + _namesExclude[j];
+      }
+      cmd += " --names-exclude " + _namesExcludeList;
+    }
+    else if (config.namesExclude) {
+      cmd += " --names-exclude \"" + config.namesExclude + "\"";
+    }
+
     if (config.quiet) {
       cmd += " --quiet";
     }
@@ -94,8 +106,8 @@ exports.init = function(grunt) {
 
     if (typeIsArray(dir)) {
       var dirList;
-      for (var i = 0, len = dir.length; i < len; i++) {
-        dirList += dir[i] + " ";
+      for (var k = 0, len = dir.length; k < len; k++) {
+        dirList += dir[k] + " ";
       }
       return cmd += " " + dirList;
     }
