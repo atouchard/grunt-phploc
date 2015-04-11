@@ -37,7 +37,9 @@ In your project's Gruntfile, add a section named `phploc` to the data object pas
 ```js
 grunt.initConfig({
   phploc: {
-    dir: 'src',
+    default: {
+      dir: 'src'
+    }
     options: {
       // Options go here.
     },

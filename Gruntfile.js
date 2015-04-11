@@ -30,21 +30,12 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     phploc: {
-      default_options: {
-        options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+      default: {
+        dir: 'php'
       },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+      options: {
+        bin: 'vendor/bin/phploc',
+        quiet: false
       }
     },
 

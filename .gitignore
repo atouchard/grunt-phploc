@@ -4,3 +4,4 @@ tmp
 composer.lock
 vendor
 .DS_Store
+composer.phar
