@@ -79,12 +79,12 @@ Type: `String`  Default: `false`
 
 Exclude a directory from code analysis.
 
-#### options.logCSV
+#### options.reportFileCSV
 Type: `String`  Default: `undefined`
 
 Write result in CSV format to file.
 
-#### options.logXML
+#### options.reportFileXML
 Type: `String`  Default: `undefined`
 
 Write result in XML format to file.
